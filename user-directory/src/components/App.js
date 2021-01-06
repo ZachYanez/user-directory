@@ -36,7 +36,7 @@ class Main extends Component {
 
    
     render() {
-        const { users, search, searchTwo } = this.state;
+        const { users, search } = this.state;
 
         const filteredUsers = users.filter((user) =>
         user.name.last.toLowerCase().includes(search.toLowerCase())
