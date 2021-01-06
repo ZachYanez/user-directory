@@ -28,6 +28,20 @@ class Main extends Component {
         this.setState({ search: e.target.value });
       };
 
+    firstNameAsc = () => {
+        const users = this.state.users.sort((a, b) =>
+          b.name.first.localeCompare(a.name.first)
+        );
+        this.setState({ users: users });
+      };
+
+    lastNameDesc = () => {
+        const users = this.state.users.sort((a, b) =>
+          b.name.last.localeCompare(a.name.last)
+        );
+        this.setState({ users: users });
+      };
+
 
     render() {
         const { users, search } = this.state;
@@ -40,7 +54,9 @@ class Main extends Component {
         return (
             <div>
                 <Navbar 
-                handleChange={this.handleChange}/>
+                handleChange={this.handleChange}
+                firstNameAsc={this.firstNameAsc}
+                lastNameDesc={this.lastNameDesc}/>
                 <List users={filteredUsers}/>
             </div>
         );
