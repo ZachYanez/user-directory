@@ -10,6 +10,7 @@ class Main extends Component {
     state = {
         users: [],
         search: "",
+        searchTwo:"",
         results: [],
         error: "" 
     };
@@ -28,20 +29,30 @@ class Main extends Component {
         this.setState({ search: e.target.value });
       };
 
+    handleChange2 = (e) => {
+        this.setState({ searchTwo: e.target.value });
+      };
+
+
+
    
     render() {
-        const { users, search } = this.state;
+        const { users, search, searchTwo } = this.state;
 
         const filteredUsers = users.filter((user) =>
         user.name.last.toLowerCase().includes(search.toLowerCase())
+      );
+      const filteredUsersTwo = users.filter((user) =>
+        user.name.first.toLowerCase().includes(searchTwo.toLowerCase())
       );
   
 
         return (
             <div>
                 <Navbar 
-                handleChange={this.handleChange}/>
-                <List users={filteredUsers}/>
+                handleChange={this.handleChange}
+                handleChange2={this.handleChange2}/>
+                <List users={filteredUsers, filteredUsersTwo}/>
             </div>
         );
     }

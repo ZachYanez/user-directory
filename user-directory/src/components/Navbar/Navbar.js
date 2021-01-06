@@ -9,9 +9,9 @@ function Navbar(props) {
             <a className="navbar-brand" href="/">
                 User Chooser
             </a>
-            <div className="searchbox">
-                 <input className="form-control mr-sm-2" type="search" placeholder="Search by last name" aria-label="Search" onChange={props.handleChange}/>
-        
+            <div className="searchbox d-flex">
+            <input className="form-control mr-sm-2" type="search" placeholder="Search by first name" aria-label="Search" onChange={props.handleChange2}/>
+            <input className="form-control mr-sm-2" type="search" placeholder="Search by last name" aria-label="Search" onChange={props.handleChange}/>
             </div>
         </nav>
 
