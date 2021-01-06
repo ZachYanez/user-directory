@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import API from "../utils/api";
+import List from "./Cards/List";
 import Navbar from "./Navbar/Navbar";
+
 
 
 
 class Main extends Component {
     state = {
+        users: [],
         search: "",
-        users: [{}],
         results: [],
         error: "" 
     };
@@ -16,21 +18,30 @@ class Main extends Component {
     componentDidMount() {
         API.getRandomUsers()
             .then(res => {
-                this.setState({ users: res.data.message })
-                console.log(res.data)
+                this.setState({ users: res.data.results })
+                console.log(res.data.results)
             })
             .catch(err => console.log(err));
     }
+    
+    handleChange = (e) => {
+        this.setState({ search: e.target.value });
+      };
 
-    handleInputChange = event => {
-        this.setState({ search: event.target.value });
-    };
-
-
+   
     render() {
+        const { users, search } = this.state;
+
+        const filteredUsers = users.filter((user) =>
+        user.name.last.toLowerCase().includes(search.toLowerCase())
+      );
+  
+
         return (
             <div>
-                <Navbar/>
+                <Navbar 
+                handleChange={this.handleChange}/>
+                <List users={filteredUsers}/>
             </div>
         );
     }
