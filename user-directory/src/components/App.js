@@ -29,7 +29,6 @@ class Main extends Component {
       };
 
 
-
     render() {
         const { users, search } = this.state;
 
@@ -37,6 +36,7 @@ class Main extends Component {
         user.name.last.toLowerCase().includes(search.toLowerCase())
       );
 
+    
         return (
             <div>
                 <Navbar 
