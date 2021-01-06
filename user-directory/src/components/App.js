@@ -28,30 +28,20 @@ class Main extends Component {
         this.setState({ search: e.target.value });
       };
 
-    handleChange2 = (e) => {
-        this.setState({ search: e.target.value });
-      };
 
 
-
-   
     render() {
         const { users, search } = this.state;
 
         const filteredUsers = users.filter((user) =>
         user.name.last.toLowerCase().includes(search.toLowerCase())
       );
-      const filteredUsersTwo = users.filter((user) =>
-        user.name.first.toLowerCase().includes(search.toLowerCase())
-      );
-  
 
         return (
             <div>
                 <Navbar 
-                handleChange={this.handleChange}
-                handleChange2={this.handleChange2}/>
-                <List users={filteredUsers, filteredUsersTwo}/>
+                handleChange={this.handleChange}/>
+                <List users={filteredUsers}/>
             </div>
         );
     }
