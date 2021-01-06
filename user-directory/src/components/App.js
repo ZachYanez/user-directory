@@ -10,7 +10,6 @@ class Main extends Component {
     state = {
         users: [],
         search: "",
-        searchTwo:"",
         results: [],
         error: "" 
     };
@@ -30,7 +29,7 @@ class Main extends Component {
       };
 
     handleChange2 = (e) => {
-        this.setState({ searchTwo: e.target.value });
+        this.setState({ search: e.target.value });
       };
 
 
@@ -43,7 +42,7 @@ class Main extends Component {
         user.name.last.toLowerCase().includes(search.toLowerCase())
       );
       const filteredUsersTwo = users.filter((user) =>
-        user.name.first.toLowerCase().includes(searchTwo.toLowerCase())
+        user.name.first.toLowerCase().includes(search.toLowerCase())
       );
   
 

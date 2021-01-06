@@ -13,6 +13,7 @@ const List = (props) => {
             last={user.name.last}
             phone={user.phone}
             email={user.email}
+            state={user.state}
             picture={user.picture.large}
             />
             ))}

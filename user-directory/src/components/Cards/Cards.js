@@ -10,7 +10,7 @@ const Cards = (props) => {
     <h5 className="card-title"> {props.first} {props.last}</h5>
     <p className="card-text">Phone # {props.phone}</p>
     <p className="card-text">Email: {props.email}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <p className="card-text">state: {props.state}</p>
     </div>
     </div>
     </div>
